@@ -82,8 +82,8 @@ function ToDoList() {
             setTaskItems(prevTasks => reorder(prevTasks, source.index, destination.index))
 
         }}>
-            <div className="m-3">
-                <h1 className="text-center my-3 bg-dark text-white p-3">
+            <div className="m-3" >
+                <h1 className="text-center my-3 bg-dark text-white p-3" data-testid="toDoList-1">
                     ToDo List
                 </h1>
                 <TaskBanner taskItems={taskItems} />
