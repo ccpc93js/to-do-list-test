@@ -1,3 +1,6 @@
+//this component is use to list tasks, using props as: task, is to define the properties of the tasks.
+
+
 import React from 'react'
 
 const TaskRow = (props) => (

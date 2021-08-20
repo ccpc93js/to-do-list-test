@@ -1,3 +1,5 @@
+//this component is use to create tasks, using props as: callBack is to create new task ,
+
 import React, { useState } from 'react'
 
 const TaskCreator = (props) => {
@@ -8,6 +10,9 @@ const TaskCreator = (props) => {
 
     const [error, setError] = useState(false)
 
+    /** 
+      *@description Used to create new task, using callBack prop
+    */
     const createNewTask = () => {
         if (newTaskTitle.trim() === '') {
             setError(true)
@@ -17,7 +22,9 @@ const TaskCreator = (props) => {
         props.callBack(newTaskTitle)
         setNewTaskTitle('')
     }
-
+    /** 
+      *@description Used to validation input new task, check if I enter a title
+    */
     const validation = () => {
         if (error) {
             return (

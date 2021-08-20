@@ -1,3 +1,5 @@
+//this component is use to show how many tasks have been done, using props as: taskItems, contains the task object
+
 import React from 'react'
 
 const TaskBanner = (props) => (
