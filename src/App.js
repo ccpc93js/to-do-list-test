@@ -68,28 +68,30 @@ function App() {
   //     ))
   // )
 
-  const reorder = (list, startIndex, endIndex)=>{
-  const result = [...list];
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
+  const reorder = (list, startIndex, endIndex) => {
+    const result = [...list];
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
 
-  return result;
-}
+    return result;
+  }
   return (
     <DragDropContext onDragEnd={(result) => {
-      const {source, destination} = result;
-      if(!destination){
+      const { source, destination } = result;
+      if (!destination) {
         return;
       }
-      if(source.index === destination.index 
-        && source.droppableId === destination.droppableId){
-          return;
+      if (source.index === destination.index
+        && source.droppableId === destination.droppableId) {
+        return;
       }
       setTaskItems(prevTasks => reorder(prevTasks, source.index, destination.index))
 
     }}>
-      <div className="">
-        <h1 className="text-center my-3">To-Do List </h1>
+      <div className="m-3">
+        <h1 className="text-center my-3 bg-dark text-white p-3">
+          ToDo List
+        </h1>
         <TaskBanner taskItems={taskItems} />
         <div className="my-4">
 
@@ -103,37 +105,37 @@ function App() {
               :
               (
 
-                  <Droppable droppableId="task">
-                    {(droppableProvided) => (
-                      <div
-                        {...droppableProvided.droppableProps}
-                        ref={droppableProvided.innerRef}
-                      >
-                        {
-                              taskItems
-                              .map((task, index) => (
-                                <Draggable key={task.id} draggableId={task.id} index={index}>
-                                  {(draggableProvided)=>(
-                                    <div
-                                    {...draggableProvided.draggableProps} 
-                                    ref={draggableProvided.innerRef}
-                                    {...draggableProvided.dragHandleProps}
-                                    >
+                <Droppable droppableId="task">
+                  {(droppableProvided) => (
+                    <div
+                      {...droppableProvided.droppableProps}
+                      ref={droppableProvided.innerRef}
+                    >
+                      {
+                        taskItems
+                          .map((task, index) => (
+                            <Draggable key={task.id} draggableId={task.id} index={index}>
+                              {(draggableProvided) => (
+                                <div
+                                  {...draggableProvided.draggableProps}
+                                  ref={draggableProvided.innerRef}
+                                  {...draggableProvided.dragHandleProps}
+                                >
 
-                                    <TaskRow 
-                                      task={task}  
-                                      toggleTask={toggleTask} 
-                                      deleteTask={deleteTask} 
-                                      />
-                                    </div>
-                                  )}
-                                </Draggable>
-                              ))
-                        }
-                        {droppableProvided.placeholder}
-                      </div>
-                    )}
-                  </Droppable>
+                                  <TaskRow
+                                    task={task}
+                                    toggleTask={toggleTask}
+                                    deleteTask={deleteTask}
+                                  />
+                                </div>
+                              )}
+                            </Draggable>
+                          ))
+                      }
+                      {droppableProvided.placeholder}
+                    </div>
+                  )}
+                </Droppable>
               )
 
 

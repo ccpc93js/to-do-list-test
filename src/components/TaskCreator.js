@@ -5,24 +5,24 @@ const TaskCreator = (props) => {
     const [newTaskTitle, setNewTaskTitle] = useState('')
 
     const updateNewTaskValue = (e) => setNewTaskTitle(e.target.value)
-    
-    const [error, setError] =useState(false)
+
+    const [error, setError] = useState(false)
 
     const createNewTask = () => {
-       if(newTaskTitle.trim() === ''){
+        if (newTaskTitle.trim() === '') {
             setError(true)
-       }else{
+        } else {
             setError(false)
-       }
+        }
         props.callBack(newTaskTitle)
         setNewTaskTitle('')
     }
-        
+
     const validation = () => {
-        if(error){
+        if (error) {
             return (
                 <div class="alert alert-danger text-center my-4">
-                add a title
+                    add a title
                 </div>
             )
         }
