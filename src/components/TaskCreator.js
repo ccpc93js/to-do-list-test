@@ -21,7 +21,7 @@ const TaskCreator = (props) => {
     const validation = () => {
         if (error) {
             return (
-                <div class="alert alert-danger text-center my-4">
+                <div className="alert alert-danger text-center my-4">
                     add a title
                 </div>
             )

@@ -7,12 +7,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function App() {
 
-  const [taskItems, setTaskItems] = useState([
-    { id: uuidv4(), title: 'Task One', done: false },
-    { id: uuidv4(), title: 'Task Two', done: false },
-    { id: uuidv4(), title: 'Task Three', done: true },
-    { id: uuidv4(), title: 'Task Four', done: false },
-  ])
+  const [taskItems, setTaskItems] = useState([])
 
   useEffect(() => {
     let data = localStorage.getItem('tasks');
@@ -98,7 +93,7 @@ function App() {
           {
             taskItems.length === 0 ?
               (
-                <div class="alert alert-dark text-center">
+                <div className="alert alert-dark text-center">
                   No hay tareas pendientes
                 </div>
               )
